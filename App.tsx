@@ -12,6 +12,7 @@ import HealthTrackingScreen from './src/screens/HealthTrackingScreen';
 import LocationScreen from './src/screens/LocationScreen';
 import InspirationScreen from './src/screens/InspirationScreen';
 import SettingsScreen from './src/screens/SettingsScreen';
+import HealthEducationScreen from './src/screens/HealthEducationScreen';
 
 // Define navigation types
 export type RootStackParamList = {
@@ -20,6 +21,7 @@ export type RootStackParamList = {
   Location: undefined;
   Inspiration: undefined;
   Settings: undefined;
+  HealthEducation: undefined;
 };
 
 const Tab = createBottomTabNavigator<RootStackParamList>();
@@ -60,6 +62,8 @@ export default function App() {
               iconName = focused ? 'bulb' : 'bulb-outline';
             } else if (route.name === 'Settings') {
               iconName = focused ? 'settings' : 'settings-outline';
+            } else if (route.name === 'HealthEducation') {
+              iconName = focused ? 'book' : 'book-outline';
             }
 
             return <Ionicons name={iconName as any} size={size} color={color} />;
@@ -94,6 +98,13 @@ export default function App() {
           component={HealthTrackingScreen}
           options={{
             title: 'Health',
+          }}
+        />
+        <Tab.Screen
+          name="HealthEducation"
+          component={HealthEducationScreen}
+          options={{
+            title: 'Education',
           }}
         />
         <Tab.Screen
